@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="login-form">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password</label>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required>
+                <span class="toggle-password" onclick="togglePassword()">👁️</span>
+            </div>
+            
+            <button type="submit">Login</button>
+            <p id="error-message" class="error-message"></p>
+        </form>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("login-form").addEventListener("submit", function (event) {
+                event.preventDefault();
+                let username = document.getElementById("username").value;
+                let password = document.getElementById("password").value;
+                let errorMessage = document.getElementById("error-message");
+                
+                if (username === "Djovan" && password === "DjovanAdib") {
+                    window.location.href = "Homepage/Homepage.html";
+                } 
+                
+                else {
+                    errorMessage.style.display = "block";
+                    errorMessage.textContent = "Mohon maaf, Username atau Password Anda salah";
+                }
+            });
+        });
+
+        function togglePassword() {
+            let passwordField = document.getElementById("password");
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+
+            } else {
+                passwordField.type = "password";
+            }
+        }
+
+    </script>
+</body>
+</html>
